@@ -469,6 +469,31 @@ class ModelView(RestCRUDView):
             return redirect('.')
 
 
+
+    """
+    ------------------------------------------------
+                HELPER FUNCTIONS
+    ------------------------------------------------
+    """
+
+    def post_add(self, item):
+        """
+            Override this, will be called before edit
+        """
+        pass
+
+    def post_delete(self, item):
+        """
+            Override this, will be called before edit
+        """
+        pass
+
+    def post_edit(self, item):
+        """
+            Override this, will be called before edit
+        """
+        pass
+
 class MasterDetailView(BaseCRUDView):
     """
         Implements behaviour for controlling two CRUD views
