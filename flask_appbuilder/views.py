@@ -416,6 +416,7 @@ class ModelView(RestCRUDView):
 
         item = self.datamodel.get(pk, self._base_filters)
 
+        '''
         print 'update'
         print item
         columns = self.datamodel.list_columns
@@ -423,14 +424,15 @@ class ModelView(RestCRUDView):
         print self.datamodel.get_values_item(item, columns)
         print dir(self.datamodel.list_columns)
         print self.datamodel.list_columns
+        '''
 
-        self.post_edit(item)
         # end override
 
         widgets = self._edit(pk)
         if not widgets:
             return redirect(self.get_redirect())
         else:
+            self.pre_edit(item) # ensure this only fires once
             return self.render_template(self.edit_template,
                                         title=self.edit_title,
                                         widgets=widgets,
